@@ -22,7 +22,7 @@ const Layout = ({ meta, children }: LayoutProps) => {
         <meta name="website" content="https://thichdacsan.vn" />
         <meta name="version" content="v1.0.0" />
       </Head>
-      <div>
+      <div className="main-wrapper">
         <Header />
         <main>{children}</main>
         <Footer />
