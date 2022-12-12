@@ -1,161 +1,47 @@
+import { Meta } from '@/types/seo';
+import { WithChildren } from '@/types/shared';
+import { Post } from '@/types/post';
+import { PostsOrPages } from '@tryghost/content-api';
+import { formatDate } from '@/common/utils';
+import { getAllPosts, getPostBySlug } from '@/common/ghost';
 import MoreStories from '@/components/widgets/more_stories';
 import Layout from '@/components/layout';
 import Banner from '@/components/widgets/banner';
 import SideBar from '@/components/widgets/sidebar';
 
-const BlogDetail = () => {
+interface BlogDetailProps extends WithChildren {
+  post: Post;
+}
+
+const BlogDetail = ({ post }: BlogDetailProps) => {
+  const meta = {
+    title: post.title ?? 'Thichdacsan.vn',
+    description: post.excerpt ?? 'Any thing with food and travel',
+    keywords: post.primary_tag ?? 'Blog food, blog travel',
+  } as Meta;
+
   return (
-    <Layout>
-      <Banner />
+    <Layout meta={meta}>
+      <Banner
+        featureImage={post.feature_image}
+        title={post.title}
+        tag={post.primary_tag?.name ?? ''}
+        time={formatDate(post.published_at)}
+        key={0}
+      />
       <div className="post-single-wrapper axil-section-gap bg-color-white">
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
               <div className="axil-post-details">
-                <p className="has-medium-font-size">
-                  Winners are recognized for outstanding app design, innovation,
-                  ingenuity, and technical achievement
-                </p>
-                <figure className="wp-block-image">
-                  <img
-                    src="/images/post-single/post-single-02.jpg"
-                    alt="Post Images"
-                  />
-                  <figcaption>
-                    The Apple Design Award trophy, created by the Apple Design
-                    team, is a symbol of achievement and excellence.
-                  </figcaption>
-                </figure>
-                <p>
-                  Apple today named eight app and game developers receiving an
-                  Apple Design Award, each one selected for being thoughtful and
-                  creative. Apple Design Award winners bring distinctive new
-                  ideas to life and demonstrate deep mastery of Apple
-                  technology. The apps spring up from developers large and
-                  small, in every part of the world, and provide users with new
-                  ways of working, creating, and playing.
-                </p>
-                <p>
-                  “Every year, app and game developers demonstrate exceptional
-                  craftsmanship and we’re honoring the best of the best,” said
-                  Ron Okamoto, Apple’s vice president of Worldwide Developer
-                  Relations. “Receiving an Apple Design Award is a special and
-                  laudable accomplishment. Past honorees have made some of the
-                  most noteworthy apps and games of all time. Through their
-                  vision, determination, and exacting standards, the winning
-                  developers inspire not only their peers in the Apple developer
-                  community, but all of us at Apple, too.”
-                </p>
-                <h2>Apple Design Award Winners: Apps</h2>
-                <p>
-                  {' '}
-                  Apple today named eight app and game developers receiving an
-                  Apple Design Award, each one selected for being thoughtful and
-                  creative. Apple Design Award winners bring distinctive new
-                  ideas to life and demonstrate deep mastery of Apple
-                  technology. The apps spring up from developers large and
-                  small, in every part of the world, and provide users with new
-                  ways of working, creating, and playing.
-                </p>
-                <p>
-                  “Every year, app and game developers demonstrate exceptional
-                  craftsmanship and we’re honoring the best of the best,” said
-                  Ron Okamoto, Apple’s vice president of Worldwide Developer
-                  Relations. “Receiving an Apple Design Award is a special and
-                  laudable accomplishment. Past honorees have made some of the
-                  most noteworthy apps and games of all time. Through their
-                  vision, determination, and exacting standards, the winning
-                  developers inspire not only their peers in the Apple developer
-                  community, but all of us at Apple, too.”
-                </p>
-                <blockquote>
-                  <p>
-                    “Most of us felt like we could trust each other to be
-                    quarantined together, so we didn’t need to wear masks or
-                    stay far apart.”
-                  </p>
-                </blockquote>
-                <figure className="wp-block-image">
-                  <img
-                    src="/images/post-single/post-single-03.jpg"
-                    alt="Post Images"
-                  />
-                  <figcaption>
-                    The Apple Design Award trophy, created by the Apple Design
-                    team, is a symbol of achievement and excellence.
-                  </figcaption>
-                </figure>
-                <h2>Apple Design Award Winners: Apps</h2>
-                <p>
-                  <a href="#">Apple today named</a> eight app and game
-                  developers receiving an Apple Design Award, each one selected
-                  for being thoughtful and creative. Apple Design Award winners
-                  bring distinctive new ideas to life and demonstrate deep
-                  mastery of Apple technology. The apps spring up from
-                  developers large and small, in every part of the world, and
-                  provide users with new ways of working, creating, and playing.
-                </p>
-                <p>
-                  “Every year, app and game developers demonstrate exceptional
-                  craftsmanship and we’re honoring the best of the best,” said
-                  Ron Okamoto, Apple’s vice president of Worldwide Developer
-                  Relations. “Receiving an Apple Design Award is a special and
-                  laudable accomplishment. Past honorees have made some of the
-                  most noteworthy apps and games of all time. Through their
-                  vision, determination, and exacting standards, the winning
-                  developers inspire not only their peers in the Apple developer
-                  community, but all of us at Apple, too.”
-                </p>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: post.html,
+                  }}
+                />
 
-                <figure className="wp-block-image">
-                  <img
-                    src="/images/post-single/post-single-04.jpg"
-                    alt="Post Images"
-                  />
-                  <figcaption>
-                    The Apple Design Award trophy, created by the Apple Design
-                    team, is a symbol of achievement and excellence.
-                  </figcaption>
-                </figure>
-                <h3>Apple Design Award Winners: Apps </h3>
-                <p>
-                  {' '}
-                  <a href="#">Apple today named</a> eight app and game
-                  developers receiving an Apple Design Award, each one selected
-                  for being thoughtful and creative. Apple Design Award winners
-                  bring distinctive new ideas to life and demonstrate deep
-                  mastery of Apple technology. The apps spring up from
-                  developers large and small, in every part of the world, and
-                  provide users with new ways of working, creating, and playing.
-                </p>
-                <p>
-                  “Every year, app and game developers demonstrate exceptional
-                  craftsmanship and we’re honoring the best of the best,” said
-                  Ron Okamoto, Apple’s vice president of Worldwide Developer
-                  Relations. “Receiving an Apple Design Award is a special and
-                  laudable accomplishment. Past honorees have made some of the
-                  most noteworthy apps and games of all time. Through their
-                  vision, determination, and exacting standards, the winning
-                  developers inspire not only their peers in the Apple developer
-                  community, but all of us at Apple, too.”{' '}
-                </p>
-                <p>
-                  More than 250 developers have been recognized with Apple
-                  Design Awards over the past 20 years. The recognition has
-                  proven to be an accelerant for developers who are pioneering
-                  innovative designs within their individual apps and
-                  influencing entire categories. Previous winners such as
-                  Pixelmator, djay, Complete Anatomy, HomeCourt, “Florence,” and
-                  “Crossy Road” have set the standard in areas such as
-                  storytelling, interface design, and use of Apple tools and
-                  technologies.
-                </p>
-                <p>
-                  For more information on the apps and games, visit the{' '}
-                  <a href="#">App Store</a>.
-                </p>
-
-                <div className="tagcloud">
+                {/* End detail */}
+                {/* <div className="tagcloud">
                   <a href="#">Design</a>
                   <a href="#">Life Style</a>
                   <a href="#">Web Design</a>
@@ -497,7 +383,7 @@ const BlogDetail = () => {
                       </li>
                     </ul>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <SideBar />
@@ -510,3 +396,17 @@ const BlogDetail = () => {
 };
 
 export default BlogDetail;
+
+export async function getStaticPaths() {
+  const posts = (await getAllPosts({})) as PostsOrPages;
+  const paths = posts.map(({ slug }) => ({ params: { slug } }));
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }: any) {
+  const { slug } = params;
+  const post = await getPostBySlug(slug);
+
+  return { props: { post } };
+}

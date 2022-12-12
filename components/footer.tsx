@@ -1,7 +1,9 @@
+import Link from 'next/link';
+
 const Footer = () => {
   return (
     <div className="axil-footer-area axil-footer-style-1 footer-variation-2">
-      <div className="footer-mainmenu">
+      {/* <div className="footer-mainmenu">
         <div className="container">
           <div className="row">
             <div className="col-lg-2 col-md-6 col-sm-6 col-12">
@@ -204,31 +206,26 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="footer-top">
+      {/* <div className="footer-top">
         <div className="container">
           <div className="row">
             <div className="col-lg-4 col-md-4">
               <div className="logo">
-                <a href="index.html">
+                <Link href="/">
                   <img
                     className="dark-logo"
                     src="/images/thicdacsan-logo.svg"
-                    alt="Logo Images"
+                    alt="thichdacsan logo"
                   />
-                  {/* <img
-                    className="white-logo"
-                    src="/images/logo/logo-white2.png"
-                    alt="Logo Images"
-                  /> */}
-                </a>
+                </Link>
               </div>
             </div>
 
             <div className="col-lg-8 col-md-8">
               <div className="d-flex justify-content-start mt_sm--15 justify-content-md-end align-items-center flex-wrap">
-                <h5 className="follow-title mb--0 mr--20">Follow Us</h5>
+                <h5 className="follow-title mb--0 mr--20">Theo dõi chúng tôi</h5>
                 <ul className="social-icon color-tertiary md-size justify-content-start">
                   <li>
                     <a href="#">
@@ -255,14 +252,23 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="copyright-area">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-9 col-md-8">
               <div className="copyright-left">
-                <ul className="mainmenu justify-content-start">
+                <div className="logo">
+                  <Link href="/">
+                    <img
+                      className="dark-logo"
+                      src="/images/thicdacsan-logo.svg"
+                      alt="thichdacsan logo"
+                    />
+                  </Link>
+                </div>
+                {/* <ul className="mainmenu justify-content-start">
                   <li>
                     <a className="hover-flip-item-wrapper" href="#">
                       <span className="hover-flip-item">
@@ -300,12 +306,12 @@ const Footer = () => {
                       </span>
                     </a>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
             <div className="col-lg-3 col-md-4">
               <div className="copyright-right text-start text-md-end mt_sm--20">
-                <p className="b3">All Rights Reserved © 2022</p>
+                <p className="b3">Powered by Pandion.vn.</p>
               </div>
             </div>
           </div>

@@ -1,68 +1,10 @@
+// import Link from 'next/link';
+// import BlurImage from './blur_image';
+
 const SideBar = () => {
   return (
     <div className="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">
       <div className="sidebar-inner">
-        <div className="axil-single-widget widget widget_categories mb--30">
-          <ul>
-            <li className="cat-item">
-              <a href="#" className="inner">
-                <div className="thumbnail">
-                  <img src="/images/post-images/category-image-01.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h5 className="title">Tech</h5>
-                </div>
-              </a>
-            </li>
-            <li className="cat-item">
-              <a href="#" className="inner">
-                <div className="thumbnail">
-                  <img src="/images/post-images/category-image-02.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h5 className="title">Style</h5>
-                </div>
-              </a>
-            </li>
-            <li className="cat-item">
-              <a href="#" className="inner">
-                <div className="thumbnail">
-                  <img src="/images/post-images/category-image-03.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h5 className="title">Travel</h5>
-                </div>
-              </a>
-            </li>
-            <li className="cat-item">
-              <a href="#" className="inner">
-                <div className="thumbnail">
-                  <img src="/images/post-images/category-image-04.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h5 className="title">Food</h5>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="axil-single-widget widget widget_search mb--30">
-          <h5 className="widget-title">Search</h5>
-          <form action="#">
-            <div className="axil-search form-group">
-              <button type="submit" className="search-button">
-                <i className="fal fa-search"></i>
-              </button>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Search"
-              />
-            </div>
-          </form>
-        </div>
-
         <div className="axil-single-widget widget widget_postlist mb--30">
           <h5 className="widget-title">Popular on Blogar</h5>
           <div className="post-medium-block">
@@ -141,7 +83,7 @@ const SideBar = () => {
           </div>
         </div>
 
-        <div className="axil-single-widget widget widget_social mb--30">
+        {/* <div className="axil-single-widget widget widget_social mb--30">
           <h5 className="widget-title">Stay In Touch</h5>
           <ul className="social-icon md-size justify-content-center">
             <li>
@@ -224,7 +166,7 @@ const SideBar = () => {
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );
