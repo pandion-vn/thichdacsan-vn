@@ -45,7 +45,7 @@ const Banner = ({ featureImage, title, tag, time }: BannerProps) => {
                 <div className="post-meta-wrapper">
                   <div className="post-meta">
                     <div className="post-author-avatar border-rounded">
-                      <FaRegUserCircle size={35} />
+                      <FaRegUserCircle size={35} color="white" />
                     </div>
                     <div className="content">
                       <h6 className="post-author-name">
